@@ -5,7 +5,7 @@ import scala.Console._
 shellPrompt.in(ThisBuild) := (state => s"${CYAN}project:$GREEN${Project.extract(state).currentRef.project}$RESET> ")
 
 lazy val commonSettings = Vector(
-  organization := "io.github.povder",
+  organization := "io.github.povder.unipool",
   organizationName := "Krzysztof Pado",
   scalaVersion := "2.12.4",
   crossScalaVersions := Vector(scalaVersion.value, "2.11.12"),
