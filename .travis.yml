@@ -3,11 +3,12 @@ dist: trusty
 sudo: false
 jdk:
 - openjdk8
+- oraclejdk9
 scala:
 - 2.11.12
 - 2.12.4
 sudo: false
-script: sbt ++$TRAVIS_SCALA_VERSION scalastyle test:scalastyle coverage test coverageReport
+script: .ci/build.sh
 after_success: bash <(curl -s https://codecov.io/bash)
 cache:
   directories:

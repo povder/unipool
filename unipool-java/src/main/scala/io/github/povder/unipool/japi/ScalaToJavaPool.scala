@@ -14,12 +14,13 @@
  * limitations under the License.
  */
 
-package io.github.povder.unipool.japi.internal.adapter
+package io.github.povder.unipool.japi
 
 import java.time.Duration
 import java.util.concurrent.CompletionStage
 
-import Conversions._
+import io.github.povder.unipool.japi.internal.adapter.Conversions._
+import io.github.povder.unipool.japi.internal.adapter.ScalaToJavaPooledResourceHandler
 
 import io.github.povder.unipool.japi.{
   Pool => JPool,
