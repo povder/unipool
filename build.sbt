@@ -5,7 +5,7 @@ import scala.Console._
 shellPrompt.in(ThisBuild) := (state => s"${CYAN}project:$GREEN${Project.extract(state).currentRef.project}$RESET> ")
 
 lazy val commonSettings = Vector(
-  organization := "io.github.povder",
+  organization := "io.github.povder.unipool",
   organizationName := "Krzysztof Pado",
   scalaVersion := "2.12.4",
   crossScalaVersions := Vector(scalaVersion.value, "2.11.12"),
@@ -59,7 +59,7 @@ lazy val `unipool-java` = (project in file("unipool-java"))
   .settings(
     name := "unipool-java",
     libraryDependencies ++= Vector(
-      Library.immutables,
+      Library.immutables % Provided,
       Library.java8Compat
     ),
   ).dependsOn(`unipool-scala`)
