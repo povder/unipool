@@ -59,7 +59,7 @@ lazy val `unipool-java` = (project in file("unipool-java"))
   .settings(
     name := "unipool-java",
     libraryDependencies ++= Vector(
-      Library.immutables,
+      Library.immutables % Provided,
       Library.java8Compat
     ),
   ).dependsOn(`unipool-scala`)
