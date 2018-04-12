@@ -182,7 +182,7 @@ class DefaultPool[R] protected[unipool](_resourceFact: PooledResourceFactory[R],
             }
 
           case Failure(NonFatal(ex)) =>
-            logWarnException(s"Pool '${config.name}' could not create a new resource", ex)
+            logger.error(s"Pool '${config.name}' could not create a new resource", ex)
             resourceManager.decrementCreatingCount() match {
               case Success(_) => Future.failed(ex)
               case Failure(NonFatal(decrementEx)) =>

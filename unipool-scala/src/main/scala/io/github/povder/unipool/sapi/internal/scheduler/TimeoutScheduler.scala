@@ -25,6 +25,7 @@ import io.github.povder.unipool.sapi.scheduler.TaskScheduler
 
 import scala.concurrent.ExecutionContext
 import scala.concurrent.duration.FiniteDuration
+import scala.concurrent.duration._
 
 private[unipool]
 class TimeoutScheduler[R](poolManager: PooledResourceManager[R],
@@ -32,8 +33,10 @@ class TimeoutScheduler[R](poolManager: PooledResourceManager[R],
                          (implicit ec: ExecutionContext)
   extends LazyLogging {
 
+  val MaxFiniteTimeout = Timeout(1.day)
+
   def scheduleTimeout(req: PendingRequest[R], timeout: Timeout): Unit = {
-    if (timeout.value.isFinite()) {
+    if (timeout.value <= MaxFiniteTimeout.value) {
       val finiteTimeout = FiniteDuration(timeout.value.length, timeout.value.unit)
       val task = taskScheduler.schedule(finiteTimeout) { () =>
         timeoutPendingReq(req, finiteTimeout)
