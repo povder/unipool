@@ -16,8 +16,6 @@
 
 package io.github.povder.unipool.japi;
 
-import io.github.povder.unipool.japi.ScalaToJavaPool;
-
 import java.time.Duration;
 import java.util.concurrent.CompletionStage;
 

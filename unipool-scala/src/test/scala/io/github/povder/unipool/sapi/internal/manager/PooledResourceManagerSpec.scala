@@ -31,7 +31,7 @@ class PooledResourceManagerSpec
 
   type R = AnyRef
 
-  "PooledResourceManage" should {
+  "PooledResourceManager" should {
     "report resource deficit correctly" in {
       val size = 10
       val manager = new PooledResourceManager[R](size)
