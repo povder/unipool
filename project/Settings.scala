@@ -11,7 +11,7 @@ object Settings {
     val startYear = 2017
     val years: String = startYear + {
       val currentYear = LocalDate.now().getYear
-      if(currentYear == startYear) ""
+      if (currentYear == startYear) ""
       else " " + currentYear
     }
   }
@@ -29,6 +29,13 @@ object Settings {
       "-Ywarn-value-discard",
       "-Xfuture",
       "-Ywarn-unused"
+    ),
+    javacOptions ++= Vector(
+      "-source", "1.8",
+      "-target", "1.8"
+    ),
+    javacOptions in doc := Vector(
+      "-source", "1.8"
     )
   )
 
