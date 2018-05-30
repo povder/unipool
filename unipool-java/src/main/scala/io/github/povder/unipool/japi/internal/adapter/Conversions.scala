@@ -64,7 +64,8 @@ private[japi] object Conversions {
       } catch {
         case _: ArithmeticException => Long.MaxValue
       }
-      FiniteDuration(nanos, NANOSECONDS)
+      //The cast below is for Scala 2.11
+      FiniteDuration(nanos, NANOSECONDS).toCoarsest.asInstanceOf[FiniteDuration]
     }
   }
 
