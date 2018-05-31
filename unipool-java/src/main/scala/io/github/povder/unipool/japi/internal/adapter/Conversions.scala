@@ -87,9 +87,9 @@ private[japi] object Conversions {
 
   implicit class JavaConfigToScala(val config: JPoolConfig) extends AnyVal {
     def toScala: SPoolConfig = {
-      val ec: ExecutionContext = config.executorService() match {
+      val ec: ExecutionContext = config.executor() match {
         case ec: ExecutionContext => ec
-        case other => ExecutionContext.fromExecutorService(other)
+        case other => ExecutionContext.fromExecutor(other)
       }
 
       SPoolConfig(

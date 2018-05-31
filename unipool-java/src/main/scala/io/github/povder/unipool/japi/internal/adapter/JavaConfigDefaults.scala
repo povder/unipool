@@ -17,7 +17,7 @@
 package io.github.povder.unipool.japi.internal.adapter
 
 import java.time.Duration
-import java.util.concurrent.ExecutorService
+import java.util.concurrent.Executor
 
 import io.github.povder.unipool.sapi.PoolConfig.Defaults
 import Conversions._
@@ -44,7 +44,7 @@ private[japi] object JavaConfigDefaults {
     }
   }
 
-  val ExecService: ExecutorService = {
+  val Executor: Executor = {
     new ExecutionContextJavaAdapter(Defaults.ExecContext)
   }
 }
