@@ -23,6 +23,7 @@ import org.immutables.value.Value.Immutable;
 import org.immutables.value.Value.Style;
 
 import java.time.Duration;
+import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 
 import static org.immutables.value.Value.Style.ImplementationVisibility.PACKAGE;
@@ -67,8 +68,8 @@ public interface PoolConfig {
     }
 
     @Default
-    default ExecutorService executorService() {
-        return JavaConfigDefaults.ExecService();
+    default Executor executor() {
+        return JavaConfigDefaults.Executor();
     }
 
     static Builder builder() {
@@ -90,7 +91,7 @@ public interface PoolConfig {
 
         Builder taskSchedulerFactory(TaskSchedulerFactory taskSchedulerFactory);
 
-        Builder executorService(ExecutorService executorService);
+        Builder executor(Executor executor);
 
         PoolConfig build();
     }
